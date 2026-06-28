@@ -1,24 +1,111 @@
 {
   "categorias": [
     {
-      "nome": "Geladeira",
+      "nome": "Hortifrúti",
+      "emoji": "🥗",
+      "itens": [
+        { "nome": "Manga", "qtd": "648g" },
+        { "nome": "Mamão", "qtd": "472g" },
+        { "nome": "Maçã Gala", "qtd": "790g" },
+        { "nome": "Cenoura", "qtd": "485g" },
+        { "nome": "Tomate", "qtd": "500g" },
+        { "nome": "Abóbora Kabotia", "qtd": "376g" },
+        { "nome": "Cebola", "qtd": "190g" },
+        { "nome": "Banana", "qtd": "1,245kg" },
+        { "nome": "Rúcula", "qtd": "150g" },
+        { "nome": "Salada mix", "qtd": "200g" },
+        { "nome": "Uva verde", "qtd": "500g" }
+      ]
+    },
+    {
+      "nome": "Proteínas",
+      "emoji": "🥩",
+      "itens": [
+        { "nome": "Frango temperado", "qtd": "706g" },
+        { "nome": "Filé de frango", "qtd": "460g" },
+        { "nome": "Alcatra moída", "qtd": "448g" },
+        { "nome": "Ovos Katayama", "qtd": "1 cx" },
+        { "nome": "Ovos avulsos", "qtd": "2 un" }
+      ]
+    },
+    {
+      "nome": "Congelados",
       "emoji": "❄️",
-      "itens": []
+      "itens": [
+        { "nome": "Seleta de legumes Marchi", "qtd": "2× 300g" }
+      ]
     },
     {
-      "nome": "Freezer",
-      "emoji": "🧊",
-      "itens": []
+      "nome": "Carboidratos",
+      "emoji": "🌾",
+      "itens": [
+        { "nome": "Arroz branco", "qtd": "274g" },
+        { "nome": "Feijão", "qtd": "422g" },
+        { "nome": "Rap10", "qtd": "2 pacotes" }
+      ]
     },
     {
-      "nome": "Despensa",
-      "emoji": "🗄️",
-      "itens": []
+      "nome": "Laticínios & Frios",
+      "emoji": "🧀",
+      "itens": [
+        { "nome": "Iogurte Parmalat", "qtd": "120g ×8" },
+        { "nome": "Manteiga Tirolês", "qtd": "200g" },
+        { "nome": "Requeijão Catupiry Light", "qtd": "400g" },
+        { "nome": "Queijo coalho Tirolês", "qtd": "280g" },
+        { "nome": "Mussarela de búfala", "qtd": "150g" },
+        { "nome": "Chocolate Lacta Intense", "qtd": "85g ×3" },
+        { "nome": "Guacamole abacate", "qtd": "300g" }
+      ]
     },
     {
-      "nome": "Higiene & Limpeza",
-      "emoji": "🧴",
-      "itens": []
+      "nome": "Conservas & Condimentos",
+      "emoji": "🥫",
+      "itens": [
+        { "nome": "Molho p/ salada Hellmanns", "qtd": null },
+        { "nome": "Picles Hammer", "qtd": "800g" },
+        { "nome": "Mostarda", "qtd": null },
+        { "nome": "Doce de leite Aviação", "qtd": "2× 400g" },
+        { "nome": "Purê Moça manga/maracujá zero", "qtd": "330ml" }
+      ]
+    },
+    {
+      "nome": "Mercearia",
+      "emoji": "☕",
+      "itens": [
+        { "nome": "Café Clássico", "qtd": "500g" },
+        { "nome": "Vinho Castelo", "qtd": "750ml" }
+      ]
+    },
+    {
+      "nome": "Granel",
+      "emoji": "🌰",
+      "itens": [
+        { "nome": "Paçoca artesanal", "qtd": "60g" },
+        { "nome": "Chia", "qtd": "60g" },
+        { "nome": "Semente de abóbora", "qtd": "60g" },
+        { "nome": "Linhaça dourada", "qtd": "50g" },
+        { "nome": "Nozes", "qtd": "60g" },
+        { "nome": "Castanha de caju", "qtd": "50g" },
+        { "nome": "Amêndoa torrada", "qtd": "90g" },
+        { "nome": "Uva passa preta", "qtd": "70g" }
+      ]
+    },
+    {
+      "nome": "Bebidas",
+      "emoji": "🧃",
+      "itens": [
+        { "nome": "Tônica zero", "qtd": "×2" },
+        { "nome": "Água com gás", "qtd": "×2" },
+        { "nome": "Monster", "qtd": "×2" }
+      ]
+    },
+    {
+      "nome": "Limpeza & Higiene",
+      "emoji": "🧹",
+      "itens": [
+        { "nome": "Papel Higiênico Neve", "qtd": "L24" },
+        { "nome": "Detergente Minuano", "qtd": "500ml" }
+      ]
     }
   ]
 }
