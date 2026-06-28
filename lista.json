@@ -1,0 +1,31 @@
+{
+  "titulo": "Mercado",
+  "data": "Terça, 24 jun 2026",
+  "geladeira_pct": 45,
+  "nivel": "🌿 Íris nível 2 — começando a te entender",
+  "anotacao": "* azeite subiu 21% — comprar no Extra",
+  "setores": [
+    {
+      "nome": "Hortifruti",
+      "itens": [
+        { "nome": "Tomate", "detalhe": "300g", "preco": "R$6,90", "preco_tipo": "subiu", "marcado": true },
+        { "nome": "Alface", "iris": true, "preco": "R$3,50", "preco_tipo": "baixou", "marcado": false },
+        { "nome": "Pepino", "detalhe": "500g", "preco": "R$4,20", "preco_tipo": "normal", "marcado": false }
+      ]
+    },
+    {
+      "nome": "Proteína",
+      "itens": [
+        { "nome": "Frango", "iris": true, "preco": "R$18,90", "preco_tipo": "subiu", "marcado": false },
+        { "nome": "Ovos", "detalhe": "dz", "preco": "R$12,50", "preco_tipo": "baixou", "marcado": true }
+      ]
+    },
+    {
+      "nome": "Base",
+      "itens": [
+        { "nome": "Azeite", "iris": true, "preco": "R$22,90", "preco_tipo": "subiu", "marcado": false },
+        { "nome": "Manteiga", "detalhe": "100g", "preco": "1ª compra", "preco_tipo": "sem-historico", "marcado": false }
+      ]
+    }
+  ]
+}

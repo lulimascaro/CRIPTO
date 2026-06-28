@@ -14,7 +14,6 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
     .header {
       background-color: #1C1C1C;
       padding: 52px 24px 20px;
@@ -79,7 +78,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* ── CADERNO ── */
     .caderno {
       position: relative;
       background-color: #F5F0E8;
@@ -101,7 +99,6 @@
       z-index: 1;
     }
 
-    /* ── INDICADORES ── */
     .indicadores {
       height: 64px;
       display: flex;
@@ -137,7 +134,6 @@
 
     .barra-fill {
       height: 100%;
-      width: 45%;
       background: linear-gradient(90deg, #8B7355, #C8A96E);
       border-radius: 3px;
     }
@@ -164,7 +160,6 @@
       font-weight: 500;
     }
 
-    /* ── SETOR ── */
     .setor-label {
       height: 32px;
       display: flex;
@@ -178,7 +173,6 @@
       padding-right: 16px;
     }
 
-    /* ── LISTA ── */
     .lista { list-style: none; padding-right: 16px; }
 
     .item {
@@ -265,7 +259,6 @@
       font-weight: 400;
     }
 
-    /* ── LEGENDA DE PREÇO ── */
     .legenda-preco {
       height: 32px;
       display: flex;
@@ -284,7 +277,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* ── ANOTAÇÃO ── */
     .anotacao {
       height: 32px;
       display: flex;
@@ -297,7 +289,6 @@
 
     .espaco { height: 32px; }
 
-    /* ── RODAPÉ ── */
     .rodape {
       background-color: #EDE7DA;
       padding: 14px 20px 40px;
@@ -343,19 +334,18 @@
       <div class="app-logo" onclick="window.location.href='index.html'">ÍRIS <span>agenda pessoal</span></div>
       <div class="avatar" onclick="window.location.href='index.html'">L</div>
     </div>
-    <div class="titulo-pagina">Mercado</div>
-    <div class="subtitulo-pagina">Terça, 24 jun 2026</div>
+    <div class="titulo-pagina" id="titulo"></div>
+    <div class="subtitulo-pagina" id="data"></div>
   </div>
 
   <div class="caderno">
-
     <div class="indicadores">
       <div class="geladeira-row">
         <span class="geladeira-label">Geladeira</span>
-        <div class="barra-container"><div class="barra-fill"></div></div>
-        <span class="barra-pct">45%</span>
+        <div class="barra-container"><div class="barra-fill" id="barra"></div></div>
+        <span class="barra-pct" id="barra-pct"></span>
       </div>
-      <div class="nivel-row">🌿 Íris nível 2 — <strong>começando a te entender</strong></div>
+      <div class="nivel-row" id="nivel"></div>
     </div>
 
     <div class="legenda-preco">
@@ -364,69 +354,13 @@
       <span style="color:#CCC5B5; font-style:italic;">sem histórico</span>
     </div>
 
-    <!-- HORTIFRUTI -->
-    <div class="setor-label">Hortifruti</div>
-    <ul class="lista">
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox marcado"></div>
-        <span class="item-nome riscado">Tomate</span>
-        <span class="item-detalhe">300g</span>
-        <span class="item-preco subiu">↑ R$6,90</span>
-      </li>
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox"></div>
-        <span class="item-nome">Alface</span>
-        <span class="tag-iris">Íris</span>
-        <span class="item-preco baixou">↓ R$3,50</span>
-      </li>
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox"></div>
-        <span class="item-nome">Pepino</span>
-        <span class="item-detalhe">500g</span>
-        <span class="item-preco">R$4,20</span>
-      </li>
-    </ul>
+    <div id="setores"></div>
 
-    <!-- PROTEÍNA -->
-    <div class="setor-label">Proteína</div>
-    <ul class="lista">
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox"></div>
-        <span class="item-nome">Frango</span>
-        <span class="tag-iris">Íris</span>
-        <span class="item-preco subiu">↑ R$18,90</span>
-      </li>
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox marcado"></div>
-        <span class="item-nome riscado">Ovos</span>
-        <span class="item-detalhe">dz</span>
-        <span class="item-preco baixou">↓ R$12,50</span>
-      </li>
-    </ul>
-
-    <!-- BASE -->
-    <div class="setor-label">Base</div>
-    <ul class="lista">
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox"></div>
-        <span class="item-nome">Azeite</span>
-        <span class="tag-iris">Íris</span>
-        <span class="item-preco subiu">↑ R$22,90</span>
-      </li>
-      <li class="item" onclick="toggle(this)">
-        <div class="checkbox"></div>
-        <span class="item-nome">Manteiga</span>
-        <span class="item-detalhe">100g</span>
-        <span class="item-preco sem-historico">1ª compra</span>
-      </li>
-    </ul>
-
-    <div class="anotacao">* azeite subiu 21% — comprar no Extra</div>
+    <div class="anotacao" id="anotacao"></div>
 
     <div class="espaco"></div>
     <div class="espaco"></div>
     <div class="espaco"></div>
-
   </div>
 
   <div class="rodape">
@@ -435,34 +369,84 @@
   </div>
 
 <script>
+const precoLabel = { subiu: '↑ ', baixou: '↓ ', normal: '', 'sem-historico': '' }
+
 function toggle(item) {
   const cb = item.querySelector('.checkbox')
   const nome = item.querySelector('.item-nome')
   cb.classList.toggle('marcado')
   nome.classList.toggle('riscado')
-
-  const nomeItem = nome.textContent.trim()
-  const marcado = cb.classList.contains('marcado')
-  localStorage.setItem(nomeItem, marcado)
+  localStorage.setItem(nome.textContent.trim(), cb.classList.contains('marcado'))
 }
 
-document.querySelectorAll('.item').forEach(function(item) {
-  const cb = item.querySelector('.checkbox')
-  const nome = item.querySelector('.item-nome')
-  const nomeItem = nome.textContent.trim()
-  const salvo = localStorage.getItem(nomeItem)
+fetch('lista.json')
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('titulo').textContent = data.titulo
+    document.getElementById('data').textContent = data.data
+    document.getElementById('barra').style.width = data.geladeira_pct + '%'
+    document.getElementById('barra-pct').textContent = data.geladeira_pct + '%'
+    document.getElementById('nivel').innerHTML = data.nivel.replace('—', '— <strong>').replace(/(.*)(<\/strong>)/, '$1</strong>')
+    document.getElementById('anotacao').textContent = data.anotacao
 
-  if (salvo === null) {
-    const marcadoInicial = cb.classList.contains('marcado')
-    localStorage.setItem(nomeItem, marcadoInicial)
-  } else if (salvo === 'true') {
-    cb.classList.add('marcado')
-    nome.classList.add('riscado')
-  } else {
-    cb.classList.remove('marcado')
-    nome.classList.remove('riscado')
-  }
-})
+    const container = document.getElementById('setores')
+
+    data.setores.forEach(setor => {
+      const label = document.createElement('div')
+      label.className = 'setor-label'
+      label.textContent = setor.nome
+      container.appendChild(label)
+
+      const ul = document.createElement('ul')
+      ul.className = 'lista'
+
+      setor.itens.forEach(item => {
+        const salvo = localStorage.getItem(item.nome)
+        const marcado = salvo !== null ? salvo === 'true' : item.marcado
+
+        const li = document.createElement('li')
+        li.className = 'item'
+        li.onclick = function() { toggle(this) }
+
+        const cb = document.createElement('div')
+        cb.className = 'checkbox' + (marcado ? ' marcado' : '')
+
+        const nome = document.createElement('span')
+        nome.className = 'item-nome' + (marcado ? ' riscado' : '')
+        nome.textContent = item.nome
+
+        li.appendChild(cb)
+        li.appendChild(nome)
+
+        if (item.detalhe) {
+          const det = document.createElement('span')
+          det.className = 'item-detalhe'
+          det.textContent = item.detalhe
+          li.appendChild(det)
+        }
+
+        if (item.iris) {
+          const tag = document.createElement('span')
+          tag.className = 'tag-iris'
+          tag.textContent = 'Íris'
+          li.appendChild(tag)
+        }
+
+        const preco = document.createElement('span')
+        preco.className = 'item-preco' + (item.preco_tipo !== 'normal' ? ' ' + item.preco_tipo : '')
+        preco.textContent = precoLabel[item.preco_tipo] + item.preco
+        li.appendChild(preco)
+
+        ul.appendChild(li)
+      })
+
+      container.appendChild(ul)
+    })
+
+    // nivel text fix
+    const nivelEl = document.getElementById('nivel')
+    nivelEl.innerHTML = data.nivel.replace('— ', '— <strong>') + '</strong>'
+  })
 </script>
 
 </body>
