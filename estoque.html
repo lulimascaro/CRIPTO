@@ -240,26 +240,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px;
       flex-shrink: 0;
     }
 
     .bateria-corpo {
-      width: 6px;
-      height: 24px;
+      width: 10px;
+      height: 32px;
       border: 1.5px solid #CCC;
-      border-radius: 2px;
+      border-radius: 3px;
       position: relative;
       overflow: hidden;
       background-color: #F5F0E8;
-    }
-
-    .bateria-topo {
-      width: 3px;
-      height: 2px;
-      background-color: #CCC;
-      border-radius: 1px 1px 0 0;
-      margin: 0 auto;
     }
 
     .bateria-fill {
@@ -401,7 +392,6 @@
           const cor = nivel <= 30 ? '#C0392B' : nivel <= 55 ? '#C8A96E' : '#6B9E6B'
           const bateria = `
             <div class="bateria">
-              <div class="bateria-topo"></div>
               <div class="bateria-corpo">
                 <div class="bateria-fill" style="height:${nivel}%;background-color:${cor};"></div>
               </div>
