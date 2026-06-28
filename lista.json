@@ -31,6 +31,15 @@
       ]
     },
     {
+      "nome": "Limpeza & Higiene",
+      "itens": [
+        { "nome": "Amaciante", "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Desinfetante Cândida", "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Detergente Sapólio líquido", "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Sabão em pó", "detalhe": "roupas de cama", "preco": "", "preco_tipo": "normal", "marcado": false }
+      ]
+    },
+    {
       "nome": "Granel",
       "itens": [
         { "nome": "Castanha de caju", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
