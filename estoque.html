@@ -140,7 +140,13 @@
       padding: 24px 20px 40px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 12px;
+    }
+
+    #categorias {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .secao-titulo {
@@ -229,6 +235,40 @@
     }
 
     .item-estoque-remover:hover { color: #B8763A; }
+
+    .bateria {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .bateria-corpo {
+      width: 6px;
+      height: 24px;
+      border: 1.5px solid #CCC;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      background-color: #F5F0E8;
+    }
+
+    .bateria-topo {
+      width: 3px;
+      height: 2px;
+      background-color: #CCC;
+      border-radius: 1px 1px 0 0;
+      margin: 0 auto;
+    }
+
+    .bateria-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 1px;
+    }
 
     .categoria-vazia {
       padding: 16px;
@@ -357,10 +397,22 @@
 
           const eExtra = idx >= (cat.itens || []).length
 
+          const nivel = item.nivel !== undefined ? item.nivel : 80
+          const cor = nivel <= 30 ? '#C0392B' : nivel <= 55 ? '#C8A96E' : '#6B9E6B'
+          const bateria = `
+            <div class="bateria">
+              <div class="bateria-topo"></div>
+              <div class="bateria-corpo">
+                <div class="bateria-fill" style="height:${nivel}%;background-color:${cor};"></div>
+              </div>
+            </div>
+          `
+
           li.innerHTML = `
             <span class="item-estoque-nome">${item.nome}</span>
             ${item.qtd ? `<span class="item-estoque-qtd">${item.qtd}</span>` : ''}
-            ${eExtra ? `<button class="item-estoque-remover" onclick="removerItem('${cat.nome}', ${idx - (cat.itens || []).length})">×</button>` : '<span style="width:24px;"></span>'}
+            ${bateria}
+            ${eExtra ? `<button class="item-estoque-remover" onclick="removerItem('${cat.nome}', ${idx - (cat.itens || []).length})">×</button>` : '<span style="width:8px;"></span>'}
           `
           ul.appendChild(li)
         })

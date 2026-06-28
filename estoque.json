@@ -4,107 +4,107 @@
       "nome": "Hortifrúti",
       "emoji": "🥗",
       "itens": [
-        { "nome": "Abóbora Kabotia", "qtd": "376g" },
-        { "nome": "Banana", "qtd": "1,245kg" },
-        { "nome": "Cenoura", "qtd": "485g" },
-        { "nome": "Cebola", "qtd": "190g" },
-        { "nome": "Mamão", "qtd": "472g" },
-        { "nome": "Manga", "qtd": "648g" },
-        { "nome": "Maçã Gala", "qtd": "790g" },
-        { "nome": "Rúcula", "qtd": "150g" },
-        { "nome": "Salada mix", "qtd": "200g" },
-        { "nome": "Tomate", "qtd": "500g" },
-        { "nome": "Uva verde", "qtd": "500g" }
+        { "nome": "Abóbora Kabotia", "qtd": "376g", "nivel": 40 },
+        { "nome": "Banana", "qtd": "1,245kg", "nivel": 80 },
+        { "nome": "Cenoura", "qtd": "485g", "nivel": 50 },
+        { "nome": "Cebola", "qtd": "190g", "nivel": 25 },
+        { "nome": "Mamão", "qtd": "472g", "nivel": 50 },
+        { "nome": "Manga", "qtd": "648g", "nivel": 65 },
+        { "nome": "Maçã Gala", "qtd": "790g", "nivel": 75 },
+        { "nome": "Rúcula", "qtd": "150g", "nivel": 30 },
+        { "nome": "Salada mix", "qtd": "200g", "nivel": 35 },
+        { "nome": "Tomate", "qtd": "500g", "nivel": 55 },
+        { "nome": "Uva verde", "qtd": "500g", "nivel": 60 }
       ]
     },
     {
       "nome": "Proteínas",
       "emoji": "🥩",
       "itens": [
-        { "nome": "Alcatra moída", "qtd": "448g" },
-        { "nome": "Filé de frango", "qtd": "460g" },
-        { "nome": "Frango temperado", "qtd": "706g" },
-        { "nome": "Ovos Katayama", "qtd": "1 cx" },
-        { "nome": "Ovos avulsos", "qtd": "2 un" }
+        { "nome": "Alcatra moída", "qtd": "448g", "nivel": 45 },
+        { "nome": "Filé de frango", "qtd": "460g", "nivel": 50 },
+        { "nome": "Frango temperado", "qtd": "706g", "nivel": 70 },
+        { "nome": "Ovos Katayama", "qtd": "1 cx", "nivel": 80 },
+        { "nome": "Ovos avulsos", "qtd": "2 un", "nivel": 20 }
       ]
     },
     {
       "nome": "Congelados",
       "emoji": "❄️",
       "itens": [
-        { "nome": "Seleta de legumes Marchi", "qtd": "2× 300g" }
+        { "nome": "Seleta de legumes Marchi", "qtd": "2× 300g", "nivel": 70 }
       ]
     },
     {
       "nome": "Carboidratos",
       "emoji": "🌾",
       "itens": [
-        { "nome": "Arroz branco", "qtd": "274g" },
-        { "nome": "Feijão", "qtd": "422g" },
-        { "nome": "Rap10", "qtd": "2 pacotes" }
+        { "nome": "Arroz branco", "qtd": "274g", "nivel": 30 },
+        { "nome": "Feijão", "qtd": "422g", "nivel": 45 },
+        { "nome": "Rap10", "qtd": "2 pacotes", "nivel": 60 }
       ]
     },
     {
       "nome": "Laticínios & Frios",
       "emoji": "🧀",
       "itens": [
-        { "nome": "Chocolate Lacta Intense", "qtd": "85g ×3" },
-        { "nome": "Guacamole abacate", "qtd": "300g" },
-        { "nome": "Iogurte Parmalat", "qtd": "120g ×8" },
-        { "nome": "Manteiga Tirolês", "qtd": "200g" },
-        { "nome": "Mussarela de búfala", "qtd": "150g" },
-        { "nome": "Queijo coalho Tirolês", "qtd": "280g" },
-        { "nome": "Requeijão Catupiry Light", "qtd": "400g" }
+        { "nome": "Chocolate Lacta Intense", "qtd": "85g ×3", "nivel": 90 },
+        { "nome": "Guacamole abacate", "qtd": "300g", "nivel": 70 },
+        { "nome": "Iogurte Parmalat", "qtd": "120g ×8", "nivel": 85 },
+        { "nome": "Manteiga Tirolês", "qtd": "200g", "nivel": 55 },
+        { "nome": "Mussarela de búfala", "qtd": "150g", "nivel": 35 },
+        { "nome": "Queijo coalho Tirolês", "qtd": "280g", "nivel": 60 },
+        { "nome": "Requeijão Catupiry Light", "qtd": "400g", "nivel": 75 }
       ]
     },
     {
       "nome": "Conservas & Condimentos",
       "emoji": "🥫",
       "itens": [
-        { "nome": "Doce de leite Aviação", "qtd": "2× 400g" },
-        { "nome": "Molho p/ salada Hellmanns", "qtd": null },
-        { "nome": "Mostarda", "qtd": null },
-        { "nome": "Picles Hammer", "qtd": "800g" },
-        { "nome": "Purê Moça manga/maracujá zero", "qtd": "330ml" }
+        { "nome": "Doce de leite Aviação", "qtd": "2× 400g", "nivel": 90 },
+        { "nome": "Molho p/ salada Hellmanns", "qtd": null, "nivel": 40 },
+        { "nome": "Mostarda", "qtd": null, "nivel": 35 },
+        { "nome": "Picles Hammer", "qtd": "800g", "nivel": 80 },
+        { "nome": "Purê Moça manga/maracujá zero", "qtd": "330ml", "nivel": 65 }
       ]
     },
     {
       "nome": "Mercearia",
       "emoji": "☕",
       "itens": [
-        { "nome": "Café Clássico", "qtd": "500g" },
-        { "nome": "Vinho Castelo", "qtd": "750ml" }
+        { "nome": "Café Clássico", "qtd": "500g", "nivel": 95 },
+        { "nome": "Vinho Castelo", "qtd": "750ml", "nivel": 100 }
       ]
     },
     {
       "nome": "Granel",
       "emoji": "🌰",
       "itens": [
-        { "nome": "Amêndoa torrada", "qtd": "90g" },
-        { "nome": "Castanha de caju", "qtd": "50g" },
-        { "nome": "Chia", "qtd": "60g" },
-        { "nome": "Linhaça dourada", "qtd": "50g" },
-        { "nome": "Nozes", "qtd": "60g" },
-        { "nome": "Paçoca artesanal", "qtd": "60g" },
-        { "nome": "Semente de abóbora", "qtd": "60g" },
-        { "nome": "Uva passa preta", "qtd": "70g" }
+        { "nome": "Amêndoa torrada", "qtd": "90g", "nivel": 50 },
+        { "nome": "Castanha de caju", "qtd": "50g", "nivel": 30 },
+        { "nome": "Chia", "qtd": "60g", "nivel": 35 },
+        { "nome": "Linhaça dourada", "qtd": "50g", "nivel": 30 },
+        { "nome": "Nozes", "qtd": "60g", "nivel": 40 },
+        { "nome": "Paçoca artesanal", "qtd": "60g", "nivel": 45 },
+        { "nome": "Semente de abóbora", "qtd": "60g", "nivel": 40 },
+        { "nome": "Uva passa preta", "qtd": "70g", "nivel": 50 }
       ]
     },
     {
       "nome": "Bebidas",
       "emoji": "🧃",
       "itens": [
-        { "nome": "Água com gás", "qtd": "×2" },
-        { "nome": "Monster", "qtd": "×2" },
-        { "nome": "Tônica zero", "qtd": "×2" }
+        { "nome": "Água com gás", "qtd": "×2", "nivel": 60 },
+        { "nome": "Monster", "qtd": "×2", "nivel": 60 },
+        { "nome": "Tônica zero", "qtd": "×2", "nivel": 60 }
       ]
     },
     {
       "nome": "Limpeza & Higiene",
       "emoji": "🧹",
       "itens": [
-        { "nome": "Detergente Minuano", "qtd": "500ml" },
-        { "nome": "Papel Higiênico Neve", "qtd": "L24" }
+        { "nome": "Detergente Minuano", "qtd": "500ml", "nivel": 70 },
+        { "nome": "Papel Higiênico Neve", "qtd": "L24", "nivel": 90 }
       ]
     }
   ]
