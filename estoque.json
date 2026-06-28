@@ -4,16 +4,16 @@
       "nome": "Hortifrúti",
       "emoji": "🥗",
       "itens": [
-        { "nome": "Manga", "qtd": "648g" },
-        { "nome": "Mamão", "qtd": "472g" },
-        { "nome": "Maçã Gala", "qtd": "790g" },
-        { "nome": "Cenoura", "qtd": "485g" },
-        { "nome": "Tomate", "qtd": "500g" },
         { "nome": "Abóbora Kabotia", "qtd": "376g" },
-        { "nome": "Cebola", "qtd": "190g" },
         { "nome": "Banana", "qtd": "1,245kg" },
+        { "nome": "Cenoura", "qtd": "485g" },
+        { "nome": "Cebola", "qtd": "190g" },
+        { "nome": "Mamão", "qtd": "472g" },
+        { "nome": "Manga", "qtd": "648g" },
+        { "nome": "Maçã Gala", "qtd": "790g" },
         { "nome": "Rúcula", "qtd": "150g" },
         { "nome": "Salada mix", "qtd": "200g" },
+        { "nome": "Tomate", "qtd": "500g" },
         { "nome": "Uva verde", "qtd": "500g" }
       ]
     },
@@ -21,9 +21,9 @@
       "nome": "Proteínas",
       "emoji": "🥩",
       "itens": [
-        { "nome": "Frango temperado", "qtd": "706g" },
-        { "nome": "Filé de frango", "qtd": "460g" },
         { "nome": "Alcatra moída", "qtd": "448g" },
+        { "nome": "Filé de frango", "qtd": "460g" },
+        { "nome": "Frango temperado", "qtd": "706g" },
         { "nome": "Ovos Katayama", "qtd": "1 cx" },
         { "nome": "Ovos avulsos", "qtd": "2 un" }
       ]
@@ -48,23 +48,23 @@
       "nome": "Laticínios & Frios",
       "emoji": "🧀",
       "itens": [
+        { "nome": "Chocolate Lacta Intense", "qtd": "85g ×3" },
+        { "nome": "Guacamole abacate", "qtd": "300g" },
         { "nome": "Iogurte Parmalat", "qtd": "120g ×8" },
         { "nome": "Manteiga Tirolês", "qtd": "200g" },
-        { "nome": "Requeijão Catupiry Light", "qtd": "400g" },
-        { "nome": "Queijo coalho Tirolês", "qtd": "280g" },
         { "nome": "Mussarela de búfala", "qtd": "150g" },
-        { "nome": "Chocolate Lacta Intense", "qtd": "85g ×3" },
-        { "nome": "Guacamole abacate", "qtd": "300g" }
+        { "nome": "Queijo coalho Tirolês", "qtd": "280g" },
+        { "nome": "Requeijão Catupiry Light", "qtd": "400g" }
       ]
     },
     {
       "nome": "Conservas & Condimentos",
       "emoji": "🥫",
       "itens": [
-        { "nome": "Molho p/ salada Hellmanns", "qtd": null },
-        { "nome": "Picles Hammer", "qtd": "800g" },
-        { "nome": "Mostarda", "qtd": null },
         { "nome": "Doce de leite Aviação", "qtd": "2× 400g" },
+        { "nome": "Molho p/ salada Hellmanns", "qtd": null },
+        { "nome": "Mostarda", "qtd": null },
+        { "nome": "Picles Hammer", "qtd": "800g" },
         { "nome": "Purê Moça manga/maracujá zero", "qtd": "330ml" }
       ]
     },
@@ -80,13 +80,13 @@
       "nome": "Granel",
       "emoji": "🌰",
       "itens": [
-        { "nome": "Paçoca artesanal", "qtd": "60g" },
+        { "nome": "Amêndoa torrada", "qtd": "90g" },
+        { "nome": "Castanha de caju", "qtd": "50g" },
         { "nome": "Chia", "qtd": "60g" },
-        { "nome": "Semente de abóbora", "qtd": "60g" },
         { "nome": "Linhaça dourada", "qtd": "50g" },
         { "nome": "Nozes", "qtd": "60g" },
-        { "nome": "Castanha de caju", "qtd": "50g" },
-        { "nome": "Amêndoa torrada", "qtd": "90g" },
+        { "nome": "Paçoca artesanal", "qtd": "60g" },
+        { "nome": "Semente de abóbora", "qtd": "60g" },
         { "nome": "Uva passa preta", "qtd": "70g" }
       ]
     },
@@ -94,17 +94,17 @@
       "nome": "Bebidas",
       "emoji": "🧃",
       "itens": [
-        { "nome": "Tônica zero", "qtd": "×2" },
         { "nome": "Água com gás", "qtd": "×2" },
-        { "nome": "Monster", "qtd": "×2" }
+        { "nome": "Monster", "qtd": "×2" },
+        { "nome": "Tônica zero", "qtd": "×2" }
       ]
     },
     {
       "nome": "Limpeza & Higiene",
       "emoji": "🧹",
       "itens": [
-        { "nome": "Papel Higiênico Neve", "qtd": "L24" },
-        { "nome": "Detergente Minuano", "qtd": "500ml" }
+        { "nome": "Detergente Minuano", "qtd": "500ml" },
+        { "nome": "Papel Higiênico Neve", "qtd": "L24" }
       ]
     }
   ]
