@@ -1,0 +1,24 @@
+{
+  "categorias": [
+    {
+      "nome": "Geladeira",
+      "emoji": "❄️",
+      "itens": []
+    },
+    {
+      "nome": "Freezer",
+      "emoji": "🧊",
+      "itens": []
+    },
+    {
+      "nome": "Despensa",
+      "emoji": "🗄️",
+      "itens": []
+    },
+    {
+      "nome": "Higiene & Limpeza",
+      "emoji": "🧴",
+      "itens": []
+    }
+  ]
+}

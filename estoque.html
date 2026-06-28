@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Íris — Estoque</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #F5F0E8;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    .header {
+      background-color: #1C1C1C;
+      padding: 52px 24px 20px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .app-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #C8A96E;
+      font-size: 22px;
+      letter-spacing: 4px;
+      cursor: pointer;
+    }
+
+    .app-saudacao {
+      font-family: 'Caveat', cursive;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #C8A96E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: #C8A96E;
+      cursor: pointer;
+    }
+
+    .titulo-pagina {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #F5F0E8;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitulo-pagina {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #666;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* ── FORMULÁRIO ── */
+    .form-adicionar {
+      background-color: #1C1C1C;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .form-input {
+      flex: 1;
+      background-color: #2A2A2A;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #F5F0E8;
+      outline: none;
+    }
+
+    .form-input::placeholder { color: #555; }
+    .form-input:focus { border-color: #C8A96E; }
+
+    .form-select {
+      background-color: #2A2A2A;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #F5F0E8;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      min-width: 120px;
+    }
+
+    .form-select:focus { border-color: #C8A96E; }
+
+    .form-select option { background-color: #2A2A2A; }
+
+    .btn-adicionar {
+      background-color: #C8A96E;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1C1C1C;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-adicionar:active { opacity: 0.8; }
+
+    /* ── CORPO ── */
+    .corpo {
+      padding: 24px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .secao-titulo {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .categoria-card {
+      background-color: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .categoria-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid #F0EBE1;
+    }
+
+    .categoria-titulo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #2C2015;
+    }
+
+    .categoria-count {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: #C8A96E;
+      background-color: #F5F0E8;
+      border-radius: 20px;
+      padding: 2px 8px;
+    }
+
+    .item-lista {
+      list-style: none;
+    }
+
+    .item-estoque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid #F5F1EA;
+    }
+
+    .item-estoque:last-child { border-bottom: none; }
+
+    .item-estoque-nome {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: #2C2015;
+      flex: 1;
+    }
+
+    .item-estoque-qtd {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #999;
+      background-color: #F5F0E8;
+      border-radius: 20px;
+      padding: 2px 8px;
+    }
+
+    .item-estoque-remover {
+      font-size: 16px;
+      color: #CCC;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 4px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .item-estoque-remover:hover { color: #B8763A; }
+
+    .categoria-vazia {
+      padding: 16px;
+      font-family: 'Caveat', cursive;
+      font-size: 18px;
+      color: #C8BFA8;
+      text-align: center;
+    }
+
+    .total-bar {
+      background-color: #EDE7DA;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .total-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #8B7355;
+    }
+
+    .total-numero {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #2C2015;
+    }
+
+    .total-numero span {
+      font-size: 12px;
+      font-weight: 400;
+      color: #999;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-top">
+      <div class="header-esquerda">
+        <div class="app-logo" onclick="window.location.href='index.html'">ÍRIS</div>
+        <div class="app-saudacao">o que tem em casa?</div>
+      </div>
+      <div class="avatar" onclick="window.location.href='index.html'">L</div>
+    </div>
+    <div class="titulo-pagina">Estoque</div>
+    <div class="subtitulo-pagina" id="subtitulo"></div>
+  </div>
+
+  <div class="form-adicionar">
+    <div class="form-row">
+      <input class="form-input" id="input-nome" type="text" placeholder="Nome do item..." />
+      <input class="form-input" id="input-qtd" type="text" placeholder="Qtd." style="max-width:80px;" />
+    </div>
+    <div class="form-row">
+      <select class="form-select" id="input-categoria"></select>
+      <button class="btn-adicionar" onclick="adicionarItem()">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="corpo">
+    <div class="secao-titulo">Itens em casa</div>
+    <div class="total-bar">
+      <span class="total-label">Total em estoque</span>
+      <span class="total-numero" id="total-numero">0 <span>itens</span></span>
+    </div>
+    <div id="categorias"></div>
+  </div>
+
+<script>
+  let dados = null
+
+  function salvarLocal() {
+    localStorage.setItem('estoque_extra', JSON.stringify(
+      dados.categorias.map(c => ({ nome: c.nome, itens: c.itens_extra || [] }))
+    ))
+  }
+
+  function carregarLocal() {
+    const salvo = localStorage.getItem('estoque_extra')
+    if (!salvo) return
+    const extra = JSON.parse(salvo)
+    extra.forEach(catExtra => {
+      const cat = dados.categorias.find(c => c.nome === catExtra.nome)
+      if (cat) cat.itens_extra = catExtra.itens
+    })
+  }
+
+  function todosItens(cat) {
+    return [...(cat.itens || []), ...(cat.itens_extra || [])]
+  }
+
+  function renderizar() {
+    const container = document.getElementById('categorias')
+    container.innerHTML = ''
+
+    let total = 0
+
+    dados.categorias.forEach(cat => {
+      const itens = todosItens(cat)
+      total += itens.length
+
+      const card = document.createElement('div')
+      card.className = 'categoria-card'
+
+      card.innerHTML = `
+        <div class="categoria-header">
+          <span class="categoria-titulo">${cat.emoji} ${cat.nome}</span>
+          <span class="categoria-count">${itens.length} itens</span>
+        </div>
+      `
+
+      const ul = document.createElement('ul')
+      ul.className = 'item-lista'
+
+      if (itens.length === 0) {
+        ul.innerHTML = '<li class="categoria-vazia">nenhum item ainda</li>'
+      } else {
+        itens.forEach((item, idx) => {
+          const li = document.createElement('li')
+          li.className = 'item-estoque'
+
+          const eExtra = idx >= (cat.itens || []).length
+
+          li.innerHTML = `
+            <span class="item-estoque-nome">${item.nome}</span>
+            ${item.qtd ? `<span class="item-estoque-qtd">${item.qtd}</span>` : ''}
+            ${eExtra ? `<button class="item-estoque-remover" onclick="removerItem('${cat.nome}', ${idx - (cat.itens || []).length})">×</button>` : '<span style="width:24px;"></span>'}
+          `
+          ul.appendChild(li)
+        })
+      }
+
+      card.appendChild(ul)
+      container.appendChild(card)
+    })
+
+    document.getElementById('total-numero').innerHTML = `${total} <span>itens</span>`
+  }
+
+  function adicionarItem() {
+    const nome = document.getElementById('input-nome').value.trim()
+    const qtd = document.getElementById('input-qtd').value.trim()
+    const catNome = document.getElementById('input-categoria').value
+
+    if (!nome) return
+
+    const cat = dados.categorias.find(c => c.nome === catNome)
+    if (!cat.itens_extra) cat.itens_extra = []
+    cat.itens_extra.push({ nome, qtd: qtd || null })
+
+    salvarLocal()
+    renderizar()
+
+    document.getElementById('input-nome').value = ''
+    document.getElementById('input-qtd').value = ''
+    document.getElementById('input-nome').focus()
+  }
+
+  function removerItem(catNome, idx) {
+    const cat = dados.categorias.find(c => c.nome === catNome)
+    if (cat.itens_extra) {
+      cat.itens_extra.splice(idx, 1)
+      salvarLocal()
+      renderizar()
+    }
+  }
+
+  document.getElementById('input-nome').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') adicionarItem()
+  })
+
+  fetch('estoque.json')
+    .then(r => r.json())
+    .then(data => {
+      dados = data
+      carregarLocal()
+
+      const sel = document.getElementById('input-categoria')
+      dados.categorias.forEach(cat => {
+        const opt = document.createElement('option')
+        opt.value = cat.nome
+        opt.textContent = cat.emoji + ' ' + cat.nome
+        sel.appendChild(opt)
+      })
+
+      const agora = new Date()
+      document.getElementById('subtitulo').textContent =
+        'atualizado em ' + agora.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long' })
+
+      renderizar()
+    })
+</script>
+
+</body>
+</html>
