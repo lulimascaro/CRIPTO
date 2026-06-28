@@ -1,30 +1,42 @@
 {
   "titulo": "Mercado",
-  "data": "Terça, 24 jun 2026",
+  "data": "Sábado, 28 jun 2026",
   "geladeira_pct": 45,
   "nivel": "🌿 Íris nível 2 — começando a te entender",
-  "anotacao": "* azeite subiu 21% — comprar no Extra",
+  "anotacao": "* baseado no seu estoque atual",
   "setores": [
     {
-      "nome": "Hortifruti",
+      "nome": "Hortifrúti",
       "itens": [
-        { "nome": "Tomate", "detalhe": "300g", "preco": "R$6,90", "preco_tipo": "subiu", "marcado": true },
-        { "nome": "Alface", "iris": true, "preco": "R$3,50", "preco_tipo": "baixou", "marcado": false },
-        { "nome": "Pepino", "detalhe": "500g", "preco": "R$4,20", "preco_tipo": "normal", "marcado": false }
+        { "nome": "Cebola", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Rúcula", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Salada mix", "detalhe": "baixo", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Abóbora", "detalhe": "baixo", "preco": "", "preco_tipo": "normal", "marcado": false }
       ]
     },
     {
-      "nome": "Proteína",
+      "nome": "Proteínas",
       "itens": [
-        { "nome": "Frango", "iris": true, "preco": "R$18,90", "preco_tipo": "subiu", "marcado": false },
-        { "nome": "Ovos", "detalhe": "dz", "preco": "R$12,50", "preco_tipo": "baixou", "marcado": true }
+        { "nome": "Ovos", "detalhe": "quase sem", "preco": "", "preco_tipo": "normal", "marcado": false }
       ]
     },
     {
       "nome": "Base",
       "itens": [
-        { "nome": "Azeite", "iris": true, "preco": "R$22,90", "preco_tipo": "subiu", "marcado": false },
-        { "nome": "Manteiga", "detalhe": "100g", "preco": "1ª compra", "preco_tipo": "sem-historico", "marcado": false }
+        { "nome": "Arroz", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Feijão", "detalhe": "baixo", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Azeite", "iris": true, "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Sal", "iris": true, "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Pão", "iris": true, "detalhe": "não tem", "preco": "", "preco_tipo": "normal", "marcado": false }
+      ]
+    },
+    {
+      "nome": "Granel",
+      "itens": [
+        { "nome": "Castanha de caju", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Linhaça dourada", "detalhe": "acabando", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Chia", "detalhe": "baixo", "preco": "", "preco_tipo": "normal", "marcado": false },
+        { "nome": "Nozes", "detalhe": "baixo", "preco": "", "preco_tipo": "normal", "marcado": false }
       ]
     }
   ]
