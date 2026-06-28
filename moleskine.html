@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Íris — Lista de Compras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Caveat+Brush&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #F5F0E8;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background-color: #1C1C1C;
+      padding: 52px 24px 20px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .app-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #C8A96E;
+      font-size: 22px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .app-logo span {
+      display: block;
+      font-weight: 400;
+      font-size: 10px;
+      color: #666;
+      letter-spacing: 2px;
+      margin-top: 1px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #C8A96E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #C8A96E;
+      cursor: pointer;
+    }
+
+    .titulo-pagina {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #F5F0E8;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitulo-pagina {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #666;
+      font-size: 13px;
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CADERNO ── */
+    .caderno {
+      position: relative;
+      background-color: #F5F0E8;
+      background-image: repeating-linear-gradient(
+        transparent, transparent 31px,
+        #C8BFA8 31px, #C8BFA8 32px
+      );
+      background-position: 0 0;
+      padding-left: 28px;
+    }
+
+    .caderno::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0; bottom: 0;
+      width: 1.5px;
+      background-color: rgba(180, 90, 90, 0.30);
+      z-index: 1;
+    }
+
+    /* ── INDICADORES ── */
+    .indicadores {
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 16px;
+    }
+
+    .geladeira-row {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .geladeira-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: #999;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .barra-container {
+      flex: 1;
+      height: 5px;
+      background-color: #DDD5C4;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .barra-fill {
+      height: 100%;
+      width: 45%;
+      background: linear-gradient(90deg, #8B7355, #C8A96E);
+      border-radius: 3px;
+    }
+
+    .barra-pct {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #8B7355;
+    }
+
+    .nivel-row {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #999;
+    }
+
+    .nivel-row strong {
+      color: #C8A96E;
+      font-weight: 500;
+    }
+
+    /* ── SETOR ── */
+    .setor-label {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      color: #8B7355;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding-right: 16px;
+    }
+
+    /* ── LISTA ── */
+    .lista { list-style: none; padding-right: 16px; }
+
+    .item {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #8B7355;
+      border-radius: 2px;
+      flex-shrink: 0;
+      position: relative;
+      background: transparent;
+    }
+
+    .checkbox.marcado::after {
+      content: '✓';
+      position: absolute;
+      top: -8px; left: 0px;
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: #5C4A2A;
+      font-weight: 700;
+    }
+
+    .item-nome {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: #2C2015;
+      line-height: 32px;
+      flex: 1;
+      transition: all 0.15s ease;
+    }
+
+    .item-nome.riscado {
+      text-decoration: line-through;
+      text-decoration-color: #8B7355;
+      color: #B0A090;
+    }
+
+    .item-detalhe {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #C8BFA8;
+      line-height: 32px;
+      flex-shrink: 0;
+    }
+
+    .tag-iris {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      color: #C8A96E;
+      border: 1px solid #C8A96E;
+      border-radius: 20px;
+      padding: 0 6px;
+      line-height: 16px;
+      flex-shrink: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .item-preco {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #B0A090;
+      line-height: 32px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-align: right;
+      min-width: 64px;
+    }
+
+    .item-preco.subiu { color: #B8763A; }
+    .item-preco.baixou { color: #6B9E6B; }
+    .item-preco.sem-historico {
+      color: #CCC5B5;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ── LEGENDA DE PREÇO ── */
+    .legenda-preco {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-right: 16px;
+    }
+
+    .legenda-preco span {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── ANOTAÇÃO ── */
+    .anotacao {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: #9B7D5A;
+      padding-right: 16px;
+    }
+
+    .espaco { height: 32px; }
+
+    /* ── RODAPÉ ── */
+    .rodape {
+      background-color: #EDE7DA;
+      padding: 14px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 2px solid #C8BFA8;
+    }
+
+    .botao-principal {
+      background-color: #1C1C1C;
+      color: #C8A96E;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px;
+      border-radius: 6px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .botao-secundario {
+      background-color: transparent;
+      color: #8B7355;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1.5px solid #C8BFA8;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-top">
+      <div class="app-logo" onclick="window.location.href='index.html'">ÍRIS <span>agenda pessoal</span></div>
+      <div class="avatar" onclick="window.location.href='index.html'">L</div>
+    </div>
+    <div class="titulo-pagina">Mercado</div>
+    <div class="subtitulo-pagina">Terça, 24 jun 2026</div>
+  </div>
+
+  <div class="caderno">
+
+    <div class="indicadores">
+      <div class="geladeira-row">
+        <span class="geladeira-label">Geladeira</span>
+        <div class="barra-container"><div class="barra-fill"></div></div>
+        <span class="barra-pct">45%</span>
+      </div>
+      <div class="nivel-row">🌿 Íris nível 2 — <strong>começando a te entender</strong></div>
+    </div>
+
+    <div class="legenda-preco">
+      <span style="color:#B8763A;">↑ subiu</span>
+      <span style="color:#6B9E6B;">↓ baixou</span>
+      <span style="color:#CCC5B5; font-style:italic;">sem histórico</span>
+    </div>
+
+    <!-- HORTIFRUTI -->
+    <div class="setor-label">Hortifruti</div>
+    <ul class="lista">
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox marcado"></div>
+        <span class="item-nome riscado">Tomate</span>
+        <span class="item-detalhe">300g</span>
+        <span class="item-preco subiu">↑ R$6,90</span>
+      </li>
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox"></div>
+        <span class="item-nome">Alface</span>
+        <span class="tag-iris">Íris</span>
+        <span class="item-preco baixou">↓ R$3,50</span>
+      </li>
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox"></div>
+        <span class="item-nome">Pepino</span>
+        <span class="item-detalhe">500g</span>
+        <span class="item-preco">R$4,20</span>
+      </li>
+    </ul>
+
+    <!-- PROTEÍNA -->
+    <div class="setor-label">Proteína</div>
+    <ul class="lista">
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox"></div>
+        <span class="item-nome">Frango</span>
+        <span class="tag-iris">Íris</span>
+        <span class="item-preco subiu">↑ R$18,90</span>
+      </li>
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox marcado"></div>
+        <span class="item-nome riscado">Ovos</span>
+        <span class="item-detalhe">dz</span>
+        <span class="item-preco baixou">↓ R$12,50</span>
+      </li>
+    </ul>
+
+    <!-- BASE -->
+    <div class="setor-label">Base</div>
+    <ul class="lista">
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox"></div>
+        <span class="item-nome">Azeite</span>
+        <span class="tag-iris">Íris</span>
+        <span class="item-preco subiu">↑ R$22,90</span>
+      </li>
+      <li class="item" onclick="toggle(this)">
+        <div class="checkbox"></div>
+        <span class="item-nome">Manteiga</span>
+        <span class="item-detalhe">100g</span>
+        <span class="item-preco sem-historico">1ª compra</span>
+      </li>
+    </ul>
+
+    <div class="anotacao">* azeite subiu 21% — comprar no Extra</div>
+
+    <div class="espaco"></div>
+    <div class="espaco"></div>
+    <div class="espaco"></div>
+
+  </div>
+
+  <div class="rodape">
+    <button class="botao-principal">Finalizar compra</button>
+    <button class="botao-secundario" onclick="window.location.href='historico.html'">Ver histórico</button>
+  </div>
+
+<script>
+function toggle(item) {
+  const cb = item.querySelector('.checkbox')
+  const nome = item.querySelector('.item-nome')
+  cb.classList.toggle('marcado')
+  nome.classList.toggle('riscado')
+
+  const nomeItem = nome.textContent.trim()
+  const marcado = cb.classList.contains('marcado')
+  localStorage.setItem(nomeItem, marcado)
+}
+
+document.querySelectorAll('.item').forEach(function(item) {
+  const cb = item.querySelector('.checkbox')
+  const nome = item.querySelector('.item-nome')
+  const nomeItem = nome.textContent.trim()
+  const salvo = localStorage.getItem(nomeItem)
+
+  if (salvo === null) {
+    const marcadoInicial = cb.classList.contains('marcado')
+    localStorage.setItem(nomeItem, marcadoInicial)
+  } else if (salvo === 'true') {
+    cb.classList.add('marcado')
+    nome.classList.add('riscado')
+  } else {
+    cb.classList.remove('marcado')
+    nome.classList.remove('riscado')
+  }
+})
+</script>
+
+</body>
+</html>
